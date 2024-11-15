@@ -1,0 +1,46 @@
+{% load static %}
+{% include 'layouts/_header.html' %}
+{% include 'layouts/_middel.html' %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Informations</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Accueil</a></li>
+          <li class="breadcrumb-item active">Scan</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section Audit">
+      <div class="row">
+      <div class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Trouver ici toutes les informations a propos de votre domaine.</h5>
+              {% include 'includes/messages.html' %}
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel alias sapiente placeat eveniet doloremque saepe ab quibusdam! Pariatur doloremque error perferendis culpa natus unde ipsam tempore delectus, laboriosam hic ea?
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        </div><!-- End Right side columns -->
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>CyLabs</span></strong>. Tout droit reserver.
+    </div>
+
+{% include 'layouts/_footer.html' %}

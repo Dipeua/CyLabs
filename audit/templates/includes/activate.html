@@ -1,0 +1,10 @@
+{% autoescape off %}
+Hi, {{ user }},
+
+Merci d'utiliser CyLabs Security ! 
+Pour finaliser votre inscription, veuillez cliquer sur le lien ci-dessous:
+
+{{ protocol }}://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+Fondateur de CyLabs ~ Dipeua Berthold (Ber1y)
+{% endautoescape %}

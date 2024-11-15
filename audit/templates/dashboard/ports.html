@@ -1,0 +1,44 @@
+{% load static %}
+{% include 'layouts/_header.html' %}
+{% include 'layouts/_middel.html' %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Ports</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Accueil</a></li>
+          <li class="breadcrumb-item active">Ports, Service et Version</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section Audit">
+      <div class="row">
+      <div class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Resultant d'analyse de ports.</h5>
+              {% include 'includes/messages.html' %}
+                
+            </div>
+          </div>
+        </div>
+      </div>
+
+        </div><!-- End Right side columns -->
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>CyLabs</span></strong>. Tout droit reserver.
+    </div>
+
+{% include 'layouts/_footer.html' %}

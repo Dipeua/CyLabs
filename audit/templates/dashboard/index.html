@@ -1,0 +1,53 @@
+{% load static %}
+{% include 'layouts/_header.html' %}
+{% include 'layouts/_middel.html' %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Audit</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Accueil</a></li>
+          <li class="breadcrumb-item active">Audit</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section Audit">
+      <div class="row">
+      <div class="row">
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Veuillez débuter par lancer votre analyse.</h5>
+              {% include 'includes/messages.html' %}
+
+              <form class="form-inline" method="get" id="scanningForm" action="{% url 'scanning' %}">
+                  <div class="form-group">
+                      <input type="text" name="domain" id="domainInput" placeholder="Spécifier un domaine ei: example.com" class="form-control" value="{% if context.value %}{{ context.domain }} {% endif %}">
+                  </div><br>
+                  <button id="scanBtn" class="btn btn-primary" type="submit">
+                      <!-- <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> -->
+                      Analyser le domain                   
+                  </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        </div><!-- End Right side columns -->
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>CyLabs</span></strong>. Tout droit reserver.
+    </div>
+
+{% include 'layouts/_footer.html' %}

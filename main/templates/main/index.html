@@ -1,0 +1,314 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CyLabs</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'main/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'main/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'main/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'main/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'main/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'main/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'main/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'main/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'main/assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'homepage' %}" class="logo d-flex align-items-center">
+        <img src="{% static 'main/assets/img/logo.png' %}" alt="">
+        <span>CyLabs</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#home">Accueil</a></li>
+          <li><a class="nav-link scrollto" href="#about">A propos</a></li>
+          <li><a class="nav-link scrollto" href="#services">Nos services</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      {% if not user.is_authenticated %}
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto" href="{% url 'login' %}">Se connecter</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'register' %}">S'inscrire</a></li>
+          </ul>
+        </nav><!-- .navbar -->
+      {% endif %}
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="home" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">CyLabs - Audit de Sécurité</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Identifier les vulnérabilités potentielles dans vos systèmes.</h2>
+
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              {% if not user.is_authenticated %}
+                <a href="{% url 'audit' %}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Commencer</span>
+                <!--<span>Continuer</span>-->
+                <i class="bi bi-arrow-right"></i>
+              </a>
+              {% else %}
+              <a href="{% url 'audit' %}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Continuer votre analyse</span>
+                <!--<span>Continuer</span>-->
+                <i class="bi bi-arrow-right"></i>
+              </a>
+              {% endif %}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{% static 'main/assets/img/hero-img.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>Qui sommes nous ?</h3>
+              <h2>Ce projet vise à réaliser un audit de sécurité de base sur divers aspects d'un système informatique.</h2>
+              <p>
+                En tant que consultant junior en cybersécurité, ce projet est une opportunité unique d'apprendre et de contribuer à la sécurité numérique. 
+              </p>
+              <div class="text-center text-lg-start">
+                <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <span>Lire plus</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="{% static 'main/assets/img/about.jpg' %}" class="img-fluid" alt="">
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Services</h2>
+          <p>CyLabs dans tout les domaines de la cybersécurité</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-box blue">
+              <i class="ri-discuss-line icon"></i>
+              <h3>Security Analyst</h3>
+              <p>Responsable du maintien de la sécurité des données d'une organisation.</p>
+              <a href="#" class="read-more"><span>Lire plus</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-box orange">
+              <i class="ri-discuss-line icon"></i>
+              <h3>Security Engineer</h3>
+              <p>Concevoir, surveiller et maintenir des contrôles de sécurité, des réseaux et des systèmes pour aider à prévenir les cyberattaques</p>
+              <a href="#" class="read-more"><span>Lire plus</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-box green">
+              <i class="ri-discuss-line icon"></i>
+              <h3>Incident Responder</h3>
+              <p>Identifie et atténue les attaques pendant que les opérations des attaquants sont encore en cours.</p>
+              <a href="#" class="read-more"><span>Lire plus</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-box red">
+              <i class="ri-discuss-line icon"></i>
+              <h3>Red Teamer</h3>
+              <p>Joue le rôle d'un adversaire, attaquant une organisation et fournissant des commentaires du point de vue de l'ennemi.<br>
+                Responsable de tester les produits technologiques pour détecter les failles de sécurité</p>
+              <a href="#" class="read-more"><span>Lire plus</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-box purple">
+              <i class="ri-discuss-line icon"></i>
+              <h3>Digital Forensics Examiner</h3>
+              <p>Responsable de l'utilisation de la criminalistique numérique pour enquêter sur les incidents et les crimes.</p>
+              <a href="#" class="read-more"><span>Lire plus</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+            <div class="service-box pink">
+              <i class="ri-discuss-line icon"></i>
+              <h3>Malware Analyst</h3>
+              <p>Analyse tous les types de logiciels malveillants pour en savoir plus sur leur fonctionnement et leur action</p>
+              <a href="#" class="read-more"><span>Lire plus</span> <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End Services Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Contact</h2>
+          <p>Contacter nous</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-12">
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="info-box">
+                  <i class="bi bi-geo-alt"></i>
+                  <h3>Address</h3>
+                  <p>Douala<br>Cameroun, </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box">
+                  <i class="bi bi-telephone"></i>
+                  <h3>Appeler nous</h3>
+                  <p>+237 xxx xx xx xx<br>+237 xxx xx xx xx</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="{% static 'main/assets/img/logo.png' %}" alt="">
+              <span>CyLabs</span>
+            </a>
+            <p>Découvrez les outils utilisés pour analyser la sécurité du système, tels que les scanners de vulnérabilités et les outils d'analyse de code.</p>
+            <div class="social-links mt-3">
+              <a href="https://x.com/_ber1y" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/dipeua-berthold/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/Dipeua" class="github"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Liens utile</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#home">Accueil</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#about">A propos</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#services">Nos services</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Nous contacter</h4>
+            <p>
+              Douala <br>
+              Cameroun,<br><br>
+              <strong>Phone:</strong> +237 xxx xx xx xx<br>
+              <strong>Email:</strong> contact@cylabs.com<br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>CyLabs</span></strong>. Tout droit reserver
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'main/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'main/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'main/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'main/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'main/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'main/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'main/assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'main/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
